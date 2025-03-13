@@ -8,7 +8,7 @@ module "ecr" {
   repository_name = var.ecr_name
 
   repository_image_tag_mutability = "MUTABLE"
-  repository_read_write_access_arns = [module.eks.eks_managed_node_groups.one.iam_role_arn, module.eks.eks_managed_node_groups.two.iam_role_arn, data.aws_caller_identity.current.arn]
+  repository_read_write_access_arns = [module.eks.eks_managed_node_groups.one.iam_role_arn, data.aws_caller_identity.current.arn]
   repository_lifecycle_policy = jsonencode({
     rules = [
       {
