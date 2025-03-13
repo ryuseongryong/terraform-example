@@ -1,0 +1,5 @@
+namespace: default
+
+resources:
+  - ./hello.yaml
+  - ./ecr-registry-secret.yaml

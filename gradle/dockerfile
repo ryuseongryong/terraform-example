@@ -1,0 +1,15 @@
+# Use an OpenJDK image
+FROM openjdk:19-jdk-alpine
+
+# Add a non-root user for security
+RUN addgroup -S spring && adduser -S spring -G spring
+USER spring:spring
+
+# Set the JAR file location
+ARG JAR_FILE=build/libs/*.jar
+
+# Copy the JAR file into the container
+COPY ${JAR_FILE} app.jar
+
+# Run the JAR file
+ENTRYPOINT ["java", "-jar", "/app.jar"]

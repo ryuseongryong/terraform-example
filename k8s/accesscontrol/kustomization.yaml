@@ -1,0 +1,5 @@
+namespace: kube-system
+
+resources:
+  - ./aws-auth.yaml
+  - ./cluster-role-binding.yaml
